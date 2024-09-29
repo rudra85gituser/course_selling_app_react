@@ -19,38 +19,48 @@ function Addcourse() {
             <div style={{ display: "flex", justifyContent: 'center' }}>
                 <Card variant="outlined" style={{ width: 400, padding: 15 }}>
                     <TextField
+                    value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         fullWidth={true}
-                        id="outlined-basic"
+                        id="title"
                         label="Title"
                         variant="outlined"
+                        margin="normal"
                     />
                     <br /><br />
                     <TextField
+                    value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         fullWidth={true}
-                        id="outlined-basic"
+                        id="description"
                         label="Description"
                         variant="outlined"
+                        margin="normal"
                     />
                     <br /><br />
-                    <Button size="large" variant="contained" 
+
+
+                <Button size="large" variant="contained" 
                    onClick={() => {
+
                     function callback2(data){
                         res.json().then(callback2)
                     }
+
                     function callback1(res){
                         lacalstorage.setItem("token" . data.token)
                     }
-                    fetch("http://localhost:3000/admin/signup" ,{
+
+                    fetch("http://localhost:3000/admin/courses" ,{
                         method: "POST",
                         body:JSON.stringify({
-                            username: email,
-                            password: password
+                            title: title,
+                            description: description
                         }),
                         headers:
                         {
-                            "Content-type": "application/json"
+                            "Content-type": "application/json",
+                            "Authorization": "Bearer " + localStorage.getItem("token")
                         }
                     })
                     .then(callback1)

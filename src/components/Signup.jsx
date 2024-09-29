@@ -21,8 +21,8 @@ function Signup()
                 marginBottom: 10,
             }}> 
              
-            <Typography varient={"h6"}>
-                Welcome to the Courseera. Sign-up below.
+            <Typography variant="h6">
+                    Welcome to Coursera. Sign up below.
             </Typography>
             
             </div>
@@ -31,27 +31,27 @@ function Signup()
             <div style={{display: "flex" , justifyContent: 'center'}}>
             <Card varient={"outlined"} style={{width:400 , padding:15}}>
 
-            <TextField onChange={(e)=>{
-                setEmail(e.target.value);
-            }}
-            fullWidth={true} id="outlined-basic" label="Email" variant="outlined" /> 
+            <TextField onChange={(e)=>{etEmail(e.target.value);}}
+            
+            fullWidth={true} id="email" label="Email" variant="outlined" /> 
 
             <br/><br/>
 
-            <TextField onChange={(e)=>{
-                setEmail(e.target.value);
-            }}
+            <TextField onChange={(e)=>{setPassword(e.target.value); }}
             
-            fullWidth={true} id="outlined-basic" label="Password" variant="outlined" />  
+            fullWidth={true} id="password" label="Password" variant="outlined" type="password" />  
             <br/><br/>
             <Button size={"large"} variant="contained"
+
             onClick={() => {
                 function callback2(data){
                     res.json().then(callback2)
                 }
+
                 function callback1(res){
                     lacalstorage.setItem("token" . data.token)
                 }
+
                 fetch("http://localhost:3000/admin/signup" ,{
                     method: "POST",
                     body:JSON.stringify({
@@ -65,10 +65,10 @@ function Signup()
                 })
                 .then(callback1)
             }}
-            >Sign-up</Button>
+            >Sign-up
+            </Button>
             </Card>
             </div>
-            
             </div>
             
         );
