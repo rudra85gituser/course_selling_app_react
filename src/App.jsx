@@ -4,22 +4,18 @@ import Signin from "./components/Signin.jsx";
 import Appbar from "./components/Appbar.jsx";
 import Addcourse from "./components/Addcourse.jsx";
 
-
 function App() {
   return (
-    <div style={{ width: "100vw" , height: "100vh" , backgroundColor: "#eeeeee"}}>
-    <Appbar></Appbar>
     <Router>
-            <Routes>
-                <Route path="/Addcourse" element={<Addcourse />} />
-                <Route path="/Signin" element={<Signin />} />
-                <Route path="/Signup" element={<Signup />} />
-                <Route path="/Admin/me" element={<Admin/me />} />
-               
-               
-            </Routes>
-        </Router>
-        </div>
+      <div style={{ width: "100vw", height: "100vh", backgroundColor: "#eeeeee" }}>
+        <Appbar />
+        <Routes>
+          <Route path="/Addcourse" element={<Addcourse />} />
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="/Signin" element={<Signin />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
