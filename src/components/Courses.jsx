@@ -1,7 +1,8 @@
 import { Card, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 
-function Courses() {
+function Courses() 
+{
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
@@ -27,13 +28,14 @@ function Courses() {
        // {JSON.stringify(courses)} 
        // Corrected to display the 'courses' data 
     return (
-        <div style={{ display: "flex" , color: '#AA336A' }}>
+        <div style={{ display: "flex" , flexWrap: "wrap" , color: '#AA336A' }}>
             Courses
          
-
+            <div  style={{display: "flex" , flexWrap: "wrap" }}>
             {courses.map(course => {
                 return <Course course={course} key={course.id} />; {/* Added a unique key */}
             })}
+            </div>
         </div>
     );
 }
