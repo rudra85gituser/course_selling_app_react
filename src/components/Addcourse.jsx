@@ -1,13 +1,14 @@
+
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 
 function Addcourse() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-
+    const [image, setImage] = useState('');
     const handleAddCourse = () => {
         // Do something with title and description
         console.log("Title:", title);
@@ -40,22 +41,39 @@ function Addcourse() {
                     <br /><br />
 
 
+                    <TextField
+                    value={image}
+                        onChange={(e) => setImage(e.target.value)}
+                        fullWidth={true}
+                        id="image"
+                        label="Image link"
+                        variant="outlined"
+                        margin="normal"
+                    />
+                    <br /><br />
+
+
                 <Button size="large" variant="contained" 
                    onClick={() => {
 
-                    function callback2(data){
-                        res.json().then(callback2)
+                    function callback2(data)
+                    {
+                        //lacalstorage.setItem("token" . data.token)
+                        alert("courses added !");
                     }
 
                     function callback1(res){
-                        lacalstorage.setItem("token" . data.token)
+                      
+                        res.json().then(callback2)
                     }
 
                     fetch("http://localhost:3000/admin/courses" ,{
                         method: "POST",
                         body:JSON.stringify({
                             title: title,
-                            description: description
+                            description: description ,
+                            imageLink: image, 
+                            published: true
                         }),
                         headers:
                         {

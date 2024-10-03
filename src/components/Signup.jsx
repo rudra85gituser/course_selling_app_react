@@ -57,7 +57,7 @@ function Signup() {
                                 console.log("Signup response:", data);
                                 if (data.token) {
                                     localStorage.setItem("token", data.token); // Fixed typo in localStorage
-                                    navigate("/"); // Navigate after successful signup
+                                    window.location="/"; // Navigate after successful signup
                                 } else {
                                     console.log("Signup failed:", data.message); // Error handling
                                 }
