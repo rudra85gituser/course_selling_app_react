@@ -1,8 +1,7 @@
-import { Card, Typography } from '@mui/material';
+import { Typography, Card } from '@mui/material';
 import { useEffect, useState } from 'react';
 
-function Courses() 
-{
+function Courses() {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
@@ -23,47 +22,44 @@ function Courses()
         }).then(callback1);
     }, []);
 
-
-       
-       // {JSON.stringify(courses)} 
-       // Corrected to display the 'courses' data 
     return (
-        <div style={{ display: "flex" , flexWrap: "wrap" , color: '#AA336A' }}>
+        <div style={{ display: "flex", flexWrap: "wrap", color: '#AA336A' }}>
             Courses
-         
-            <div  style={{display: "flex" , flexWrap: "wrap" }}>
-            {courses.map(course => {
-                return <Course course={course} key={course.id} />; {/* Added a unique key */}
-            })}
+
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+                {courses.map(course => {
+                    // Added a unique key
+                    return <Course course={course} key={course.id || course._id} />;
+                })}
             </div>
         </div>
     );
 }
 
-function Course(props) {
+export function Course(props) {
     return (
-        <Card
-            style={{
-                border: "2px solid black",
-                margin: 10,
-                width: 300,
-                color: '#AA336A',
-                minHeight: 200,
-            }}
-        >
-            <Typography textAlign={"center"} variant="h6">
-                {props.course.title}
-            </Typography>
+        <div>
+            <Card
+                style={{
+                    border: "2px solid black",
+                    margin: 10,
+                    width: 300,
+                    color: '#AA336A',
+                    minHeight: 200,
+                }}
+            >
+                <Typography textAlign={"center"} variant="h6">
+                    {props.course.title}
+                </Typography>
 
-            <Typography textAlign={"center"} variant="h6">
-                {props.course.description}
-            </Typography>
+                <Typography textAlign={"center"} variant="h6">
+                    {props.course.description}
+                </Typography>
 
-            <img src= {props.course.imageLink} style= {{width: 180}}></img>
-
-             
-
-        </Card>
+                {/* Added alt attribute for accessibility */}
+                <img src={props.course.imageLink} style={{ width: 150 }} alt={props.course.title} />
+            </Card>
+        </div>
     );
 }
 
