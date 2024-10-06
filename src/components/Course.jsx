@@ -37,10 +37,10 @@ function Course() {
     }
 
     return (
-        <div >
+        <>
             <CourseCard courseID={courseID} />
             <UpdateCard courseID={courseID} />
-        </div>
+        </>
     );
 }
 
@@ -130,7 +130,7 @@ function CourseCard({ courseID }) {
     // Your original loop approach to find the course
     let course = null;
     for (let i = 0; i < courses.length; i++) {
-        if (courses[i].id === courseID) {
+        if (String(courses[i].id) === String(courseID)) {
             course = courses[i];
             break;
         }
